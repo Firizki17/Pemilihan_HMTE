@@ -23,28 +23,19 @@ function vote(name) {
     return;
   }
 
-  const voteData = {
-    nama: userNama,
-    npm: userNpm,
-    pilihan: name,
-    waktu: new Date().toLocaleString()
-  };
+  const formData = new FormData();
+  formData.append('entry.1726704042', userNama);  // Nama Lengkap
+  formData.append('entry.207986353', userNpm);    // NPM
+  formData.append('entry.958644190', name);       // Pilihan Ketua
 
-  fetch('https://script.google.com/macros/s/AKfycbwFMi2tqrLkVGlDHzs8vVlTRHE6jZNN2OSujzgZCUZCXtBAI-5Sf3g68cianK5uWxD-/exec', {
+  fetch('https://docs.google.com/forms/d/e/1FAIpQLSd8zayxC0_DFgMnbjJx2iNysRjS53Mo2Kd5GzZcE38-bTuN5Q/formResponse', {
     method: 'POST',
-    body: JSON.stringify(voteData),
-    headers: {
-      'Content-Type': 'application/json'
-    }
+    mode: 'no-cors',  // agar CORS tidak jadi masalah
+    body: formData
   })
-  .then(response => response.json())
-  .then(data => {
-    if (data.result === 'success') {
-      localStorage.setItem('voted', JSON.stringify(voteData));
-      document.getElementById('status').innerText = `Kamu memilih ${name}. Terima kasih!`;
-    } else {
-      document.getElementById('status').innerText = 'Terjadi kesalahan, coba lagi.';
-    }
+  .then(() => {
+    localStorage.setItem('voted', JSON.stringify({ nama: userNama, npm: userNpm, pilihan: name }));
+    document.getElementById('status').innerText = `Kamu memilih ${name}. Terima kasih!`;
   })
   .catch(() => {
     document.getElementById('status').innerText = 'Terjadi kesalahan koneksi.';
