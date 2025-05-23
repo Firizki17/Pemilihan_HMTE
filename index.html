@@ -12,30 +12,34 @@
 
     <!-- Form Nama & NPM -->
     <div class="form-group">
-      <input type="text" id="nama" placeholder="Nama Lengkap">
-      <input type="text" id="npm" placeholder="NPM">
+      <input type="text" id="nama" placeholder="Nama Lengkap" />
+      <input type="text" id="npm" placeholder="NPM" />
       <button onclick="enableVoting()">Lanjut</button>
     </div>
 
     <!-- Kandidat -->
     <div class="grid" id="candidates" style="display: none;">
       <div class="card">
-        <img src="assets/Aldi.jpg" alt="Andi">
+        <div class="nomor">1</div>
+        <img src="assets/Aldi.jpg" alt="Andi" />
         <h2>Andi Saputra</h2>
         <button onclick="vote('Andi')">Pilih</button>
       </div>
       <div class="card">
-        <img src="img/budi.jpg" alt="Budi">
+        <div class="nomor">2</div>
+        <img src="img/budi.jpg" alt="Budi" />
         <h2>Budi Santoso</h2>
         <button onclick="vote('Budi')">Pilih</button>
       </div>
       <div class="card">
-        <img src="img/citra.jpg" alt="Citra">
+        <div class="nomor">3</div>
+        <img src="img/citra.jpg" alt="Citra" />
         <h2>Citra Dewi</h2>
         <button onclick="vote('Citra')">Pilih</button>
       </div>
       <div class="card">
-        <img src="img/dedi.jpg" alt="Dedi">
+        <div class="nomor">4</div>
+        <img src="img/dedi.jpg" alt="Dedi" />
         <h2>Dedi Kurniawan</h2>
         <button onclick="vote('Dedi')">Pilih</button>
       </div>
@@ -43,6 +47,7 @@
 
     <p id="status"></p>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>

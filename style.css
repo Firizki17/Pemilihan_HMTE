@@ -30,15 +30,33 @@ h1 {
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   padding: 20px;
   transition: transform 0.2s;
+  position: relative;
 }
 
 .card:hover {
   transform: scale(1.03);
 }
 
+.nomor {
+  font-size: 28px;
+  font-weight: bold;
+  color: #2563eb;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #e0e7ff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  line-height: 40px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
 .card h2 {
   font-size: 18px;
   color: #374151;
+  margin-top: 50px; /* memberi jarak karena ada nomor */
 }
 
 button {
@@ -82,7 +100,9 @@ input[type="text"] {
 .card img {
   width: 100%;
   max-height: 150px;
-  object-fit: cover;
+  object-fit: countain;    /* biar gambar tidak terpotong */
+  background-color: #f0f0f0; /* warna latar jika ada ruang kosong */
   border-radius: 8px;
   margin-bottom: 10px;
 }
+
